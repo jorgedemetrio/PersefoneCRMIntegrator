@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="3.2" method="upgrade">
+	<name>Com Persefone</name>
+	<creationDate>September 01, 2017</creationDate>
+	<author>Jorge Demetrio</author>
+	<authorEmail>jorge.demetrio@alldreams.com.br</authorEmail>
+	<authorUrl>www.alldreams.com.br</authorUrl>
+	<copyright>Copyright (C) 2015. All Rights Reserved</copyright>
+	<license>GNU/GPL Version 3 or later - http://www.gnu.org/licenses/gpl-2.0.html</license>
+	<version>{VERSAO}</version>
+	<description><![CDATA[
+		<h1>Persefone CRM ({VERSAO})</h1>
+		<div style="clear: both;"></div>
+		<p>Componente integrar com o CRM.. <strong>Built for Joomla 3.8.</strong></p>
+		<p>Created by <a href="http://www.alldreams.com.br" target="_blank">Jorge Demetrio | www.alldreams.com.br</a>
+	]]></description>
+
+	<!-- Runs on install/uninstall/update; New in Joomla 2.5 -->
+	<scriptfile>script.php</scriptfile>
+
+	<files folder="site">
+		<filename>controller.php</filename>
+		<filename>index.html</filename>
+		<filename>router.php</filename>
+		<filename>persefone.php</filename>
+		<folder>icones</folder>
+		<folder>helpers</folder>
+		<folder>views</folder>
+	</files>
+    
+	<install>
+        <sql>
+            <file charset="utf8" driver="mysql">install/installsql.mysql.utf8.sql</file>
+        </sql>
+    </install>
+
+    <uninstall>
+        <sql>
+            <file charset="utf8" driver="mysql">install/uninstallsql.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+	
+	
+	<config>
+		<fieldset
+			name="greetings"
+			label="COM_HELLOWORLD_CONFIG_GREETING_SETTINGS_LABEL"
+			description="COM_HELLOWORLD_CONFIG_GREETING_SETTINGS_DESC" >
+			<field
+				name="show_category"
+				type="radio"
+				label="COM_HELLOWORLD_HELLOWORLD_FIELD_SHOW_CATEGORY_LABEL"
+				description="COM_HELLOWORLD_HELLOWORLD_FIELD_SHOW_CATEGORY_DESC"
+				default="0" >
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+		</fieldset>
+	</config>
+		
+	
+	<updateservers>
+		<server type="extension" name="com_persefone" priority="1">http://updates.alldreams.com.br/com_persefone.xml</server>
+	</updateservers>
+	
+	<administration>
+		<menu img="components/com_persefone/assets/images/icons/com_persefone-16x16.png">COM_PERSEFONE_MENU</menu>
+		<submenu>
+			<menu option="com_persefone" view="sitemaps">COM_PERSEFONE_SITEMAP</menu>
+<!-- 			<menu link="option=com_persefone&amp;task=crow">COM_PERSEFONE_CROW</menu> -->
+<!-- 			<menu link="option=com_persefone&amp;task=sitemaps">COM_PERSEFONE_SITEMAP</menu> -->
+		</submenu>
+		<files folder="admin">
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+			<filename>persefone.php</filename>
+			<folder>install</folder>
+			<folder>assets</folder>
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>models</folder>
+			<folder>views</folder>
+			<folder>language</folder>
+		</files>
+
+		<languages folder="admin">
+			<language tag="en-GB">language/en-GB/en-GB.com_persefone.ini</language>
+			<language tag="en-GB">language/en-GB/en-GB.com_persefone.sys.ini</language>
+		</languages>
+
+	</administration>
+</extension>
